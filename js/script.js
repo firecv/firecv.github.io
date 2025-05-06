@@ -6,9 +6,9 @@ function shrinkHeader() {
     document.getElementById("header").style.top = "-1.5vh";
     document.getElementById("subheader").style.width = "calc(375px - 5vw)";
     document.getElementById("title").style.fontSize = "0px";
-    document.getElementById("subtitle").style.fontSize = "40px";
-    document.getElementById("pfp").style.width = "40px";
-    document.getElementById("pfp").style.minWidth = "40px";
+    document.getElementById("subtitle").style.fontSize = "5.6vh";
+    document.getElementById("pfp").style.width = "5.6vh";
+    document.getElementById("pfp").style.minWidth = "10px";
     document.getElementById("under-header").style.marginTop = "25vh";
     document.getElementById("under-header").style.marginBottom = "2vh";
   } else {
