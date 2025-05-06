@@ -1,0 +1,299 @@
+/* FONTS */
+
+.oswald-small350 { /* https://fonts.google.com/specimen/Oswald */
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+    font-style: normal;
+}
+
+.oswald-medium500 { 
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.oswald-large700 {
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.jersey-10-regular { /* https://fonts.google.com/specimen/Jersey+10 */
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.sixtyfour-default { /* https://fonts.google.com/specimen/Sixtyfour */
+    font-family: "Sixtyfour", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" 0;
+}
+
+.abril-fatface-regular { /* https://fonts.google.com/specimen/Abril+Fatface */
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+
+/* BASIC */
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    scrollbar-color: black #ae7bf0;
+}
+
+body {
+    background-image:url('../images/bg.jpg'); /* Photo by Artem Sapegin on Unsplash*/
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* HEADER */
+
+#header {
+    width: 100%;
+    height: 75vh;
+    background-image: linear-gradient(to bottom right, #9250e8, #ae7bf0);
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    transition: 0.5s;
+    /*border-bottom: solid black 3px;*/
+}
+
+#subheader {
+    width: 50vw;
+    transition: 0.5s;
+}
+
+#title {
+    font-size: calc(36px + 5.5vw);
+    text-align: center;
+    color: white;
+    transition: 0.5s;
+}
+
+#subtitle {
+    font-size: calc(24px + 3.5vw);
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+#subtitle:hover {
+    color: white;
+}
+
+#pfp {
+    width: 12.3vw;
+    height: auto;
+    border-width: 2px;
+    transition: 0.5s;
+}
+
+/* INFO BOXES, UNDER HEADER*/
+
+#under-header {
+    font-size: 48px;
+    text-align: center;
+    margin-top: 80vh;
+    margin-bottom: 5vh;
+    transition: 0.5s;
+}
+
+#info-box1 {
+    background-image: linear-gradient(to bottom right, #e52323, #fc9425);
+}
+
+#info-box2 {
+    background-image: linear-gradient(to bottom right, #3ae534, #9dff48);
+}
+
+#info-box3 {
+    background-image: linear-gradient(to bottom right, #3bdbff, #1154da);
+}
+
+
+/* CV SECTION */
+
+#cv-container {
+    background-color: black;
+    color: white;
+    height: 90vh;
+    width: 100vw;
+    margin-top: 3vh;
+    padding-top: 5vh;
+}
+
+#cv-title {
+    font-size: 80px;
+    text-align: center;
+    color: white;
+}
+
+
+/* GENERIC STYLE CLASSES */
+
+.circle-frame {
+    border-radius: 50%;
+    border-style: solid;
+    border-color: black;
+}
+
+.horizontal-flex {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.vertical-flex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.slight-hover:hover {
+    transform: scale(1.01);
+    transition: 0.2s;
+}
+
+.severe-hover:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+/* INFO BOX CLASSES */
+
+.info-flex {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.info-box {
+    width: 30vw;
+    min-width: 400px;
+    height: 60vh;
+    border-radius: 20%;
+    margin-bottom: 2vh;
+}
+
+.info-box-title {
+    font-size: 80px;
+    text-align: center;
+    color: white;
+}
+
+.info-box-link {
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border: solid white 4px;
+    padding: 0 10px 0 10px;
+    transition: 0.5s;
+}
+
+.info-box-link:hover {
+    font-size: 40px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    border: solid black 4px;
+}
+  
+
+/* ACCORDION CLASSES */
+ 
+.accordion-container {
+    display: flex;
+    height: 80%;
+    overflow: hidden;
+}
+  
+.accordion {
+    background-color: #282828;
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+    writing-mode: vertical-rl;
+
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    transform: rotate(180deg);
+    flex: 0 0 60px;
+}
+  
+.accordion:hover {
+    background-color: #878787;
+}
+  
+.accordion.active {
+    background-color: #9250e8;
+}
+
+.panel {
+    background-color: black;
+    overflow: hidden;
+    flex: 0 0 0;
+    color: black;
+    transition: flex 0.6s ease-in-out;
+    padding: 20px;
+    height: 100%;
+}
+
+.panel p {
+    font-size: 2vw;
+}
+
+.panel a {
+    text-decoration: none;
+    color: black;
+}
+
+.panel.open {
+    flex: 1 1 0;
+    color: white;
+    transition: flex 0.6s ease-in-out;
+}
+
+.panel.open a {
+    text-decoration: none;
+    color: #bbbbbb;
+    font-weight: 900;
+    transition: 0.5s;
+}
+
+.panel.open a:hover {
+    color: #c800ff;
+}
+
+ul {
+    margin-left: 5vw;
+    font-size: 1.5vw;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jersey+10&family=Oswald:wght@200..700&family=Sixtyfour&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <!--<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
+    </head>
+    <body class="vertical-flex">
+        <header id="header" class="vertical-flex">
+            <h1 id="title" class="jersey-10-regular">Web & Fullstack Development</h1>
+            <div id="subheader" class="horizontal-flex">
+                <img src="images/placeholder.png" id="pfp" class="circle-frame">
+                <a id="subtitle" class="jersey-10-regular" href="#">Ethan Hattingh</a>
+            </div>
+        </header>
+
+        <p id="under-header" class="oswald-medium500">Learn more about me:</p>
+
+        <div class="info-flex">
+            <div id="info-box1" class="info-box vertical-flex slight-hover">
+                <p class="info-box-title oswald-large700">Contact</p>
+                <a class="info-box-link oswald-medium500" href= "mailto:ethanhattingh03@gmail.com">Email</a>
+            </div>
+            <div id="info-box2" class="info-box vertical-flex slight-hover">
+                <p class="info-box-title oswald-large700">CV</p>
+                <div class="horizontal-flex">
+                    <a class="info-box-link oswald-medium500" href="documents/Ethan Hattingh CV.pdf" download>Download</a>
+                    <a class="info-box-link oswald-medium500" href="#cv-container">Online</a>
+                </div>
+            </div>
+            <div id="info-box3" class="info-box vertical-flex slight-hover">
+                <p class="info-box-title oswald-large700">Socials</p>
+                <div class="horizontal-flex">
+                    <a class="info-box-link oswald-medium500" href="https://github.com/firecv">Github</a>
+                    <a class="info-box-link oswald-medium500" href="https://www.linkedin.com/in/ethan-hattingh-84b135362/">Linkedin</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="cv-container">
+            <h2 id="cv-title" class="oswald-large700">Check my CV:</h2>
+            <div class="accordion-container">
+                <button id="accordion-button1" class="accordion active oswald-medium500">Work Experience</button>
+                <div class="panel open">
+                    <p class="oswald-small350">Voluntary work with <a class="cv-link" href="https://whatt4.eth.limo/" target="_blank">Whatt4</a> for the following clients:</p>
+                    <ul class="oswald-small350">
+                        <li><a href="https://dxdao.eth.link/" target="_blank">DXDao [now defunct]</a> (2022-2023) - Editing articles and other social media.</li>
+                        <li><a href="https://www.metrom.xyz/en" target="_blank">Metrom</a> (2024) - Editing and ghostwriting articles on Medium.</li>
+                        <li><a href="https://outposts.io/" target="_blank">Outposts</a> (2024 - 2025) - Social media management.</li>
+                    </ul>
+                </div>
+              
+                <button id="accordion-button2" class="accordion oswald-medium500">Hard Skills</button>
+                <div class="panel">
+                  <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                </div>
+              
+                <button id="accordion-button3" class="accordion oswald-medium500">Soft Skills</button>
+                <div class="panel">
+                  <p>Duis aute irure dolor in reprehenderit in voluptate.</p>
+                </div>
+              </div>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
