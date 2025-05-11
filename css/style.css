@@ -281,13 +281,6 @@ body {
     flex: 0 0 60px;
     transition: 0.3s;
 }
-
-@media (max-width: 600px) {
-    .accordion {
-        writing-mode: horizontal-tb;
-        transform: rotate(0deg);
-    }
-}
   
 .accordion:hover {
     background-color: #878787;
@@ -299,7 +292,7 @@ body {
 
 .panel {
     background-color: black;
-    overflow-y: scroll;
+    overflow-y: hidden;
     flex: 0 0 0;
     color: black;
     transition: flex 0.6s ease-in-out;
@@ -320,6 +313,7 @@ body {
     flex: 1 1 0;
     color: white;
     transition: flex 0.6s ease-in-out;
+    overflow-y: scroll;
     padding: calc(5px + 1vw);
 }
 
