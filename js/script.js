@@ -1,4 +1,5 @@
 window.onscroll = function() {shrinkHeader()};
+window.addEventListener('load', function() {shrinkHeader();});
 /* my browser: 1536 x 703 */
 function shrinkHeader() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
