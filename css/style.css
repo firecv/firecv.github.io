@@ -309,12 +309,22 @@ body {
 }
 
 .panel p {
-    font-size: calc(12px + 0.8vw);
+    font-size: 24px;
 }
 
 .panel a {
+    font-size: 24px;
     text-decoration: none;
     color: black;
+}
+
+.panel ul {
+    margin-left: 5vw;
+    font-size: 20px;
+}
+
+.panel ul a {
+    font-size: 20px;
 }
 
 .panel.open {
@@ -334,10 +344,6 @@ body {
 
 .panel.open a:hover {
     color: #c800ff;
-}
-
-ul {
-    margin-left: 5vw;
 }
 
 .bigger-text {
