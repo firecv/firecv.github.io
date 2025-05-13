@@ -200,6 +200,7 @@ body {
     width: 30vw;
     min-width: 400px;
     height: 60vh;
+    min-height: 330px;
     border-radius: 20%;
     margin: 0 20px 2vh;
 }
@@ -280,6 +281,13 @@ body {
     transform: rotate(180deg);
     flex: 0 0 60px;
     transition: 0.3s;
+}
+
+@media (max-width: 600px) {
+    .accordion {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
+    }
 }
   
 .accordion:hover {
