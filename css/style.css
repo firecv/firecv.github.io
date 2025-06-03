@@ -125,12 +125,12 @@ body {
     align-items: center;
 }
 
-h1 {
+#title {
     font-size: 80px;
     color: white;
 }
 
-h2 {
+#subtitle {
     font-size: 50px;
     color: white;
     margin: 40px;
@@ -175,28 +175,21 @@ h2 {
 
 /* HEADER */
 
+#header {
+    position: sticky;
+
+}
+
+#header-items {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h1 {
+
+}
 
 /* INFO BOXES, UNDER HEADER*/
-
-#under-header {
-    font-size: 48px;
-    text-align: center;
-    margin-bottom: 5vh;
-    transition: 0.5s;
-}
-
-#info-box1 {
-    background-image: linear-gradient(to bottom right, #e52323, #fc9425);
-}
-
-#info-box2 {
-    background-image: linear-gradient(to bottom right, #3ae534, #9dff48);
-}
-
-#info-box3 {
-    background-image: linear-gradient(to bottom right, #3bdbff, #1154da);
-}
-
 
 /* CV SECTION */
 
@@ -240,16 +233,6 @@ h2 {
     align-items: center;
 }
 
-.slight-hover:hover {
-    transform: scale(1.01);
-    transition: 0.2s;
-}
-
-.severe-hover:hover {
-    transform: scale(1.05);
-    transition: 0.2s;
-}
-
 /* INFO BOX CLASSES */
 
 .info-flex {
@@ -266,8 +249,16 @@ h2 {
     min-width: 400px;
     height: 60vh;
     min-height: 330px;
-    border-radius: 20%;
+    border-radius: 3px;
+    border: 2px gray solid;
+    background-color: black;
     margin: 0 20px 2vh;
+    transition: 0.2s ease-in-out;
+}
+
+.info-box:hover {
+    transform: scale(1.02);
+    border: 2px gold solid;
 }
 
 .info-link-flex {
@@ -285,21 +276,36 @@ h2 {
 }
 
 .info-box-link {
-    font-size: 40px;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    border: solid white 4px;
-    padding: 0 10px 0 10px;
-    transition: 0.5s;
+    font-size: 36px;
 }
 
-.info-box-link:hover {
-    font-size: 40px;
-    text-align: center;
-    color: black;
+.info-box .info-box-link {
+    border-radius: 3px;
+    border: 3px gray solid;
+    background-color: rgba(0, 0, 0, 0);
+    color: gray;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    transition-duration: 350ms;
     text-decoration: none;
-    border: solid black 4px;
+}
+
+.info-box:hover .info-box-link {
+    border-radius: 3px;
+    border: 3px white solid;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    transition-duration: 350ms;
+    text-decoration: none;
+}
+
+.info-box:hover .info-box-link:hover {
+    border: 3px gold solid;
+    background-color: gold;
+    color: white;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {
@@ -360,7 +366,7 @@ h2 {
 }
   
 .accordion.active {
-    background-color: #9250e8;
+    background-color: gold;
 }
 
 .panel {
@@ -402,13 +408,14 @@ h2 {
 
 .panel.open a {
     text-decoration: none;
-    color: #bbbbbb;
+    color: white;
+    font-style: italic;
     font-weight: 900;
     transition: 0.5s;
 }
 
 .panel.open a:hover {
-    color: #c800ff;
+    color: gold;
 }
 
 .bigger-text {
