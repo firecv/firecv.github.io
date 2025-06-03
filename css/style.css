@@ -179,6 +179,7 @@ body {
     width: 100%;
     z-index: 100;
     height: fit-content;
+    margin-bottom: 40px;
     padding: 5px;
     background-color: black;
     border-bottom: 2px gold solid;
@@ -199,37 +200,13 @@ body {
     color: gold;
 }
 
-/* CV SECTION */
-
-#cv-container {
-    background-color: black;
-    color: white;
-    height: 92vh;
-    width: 100vw;
-    margin-top: 3vh;
-    padding-top: 5vh;
-}
-
-@media (max-width: 600px) {
-    #cv-container {
-        margin-bottom: 40px;
-    }
-}
-
-#cv-title {
-    font-size: 80px;
-    text-align: center;
-    color: white;
-}
-
-
 /* GENERIC STYLE CLASSES */
 
-.circle-frame {
+/*.circle-frame {
     border-radius: 50%;
     border-style: solid gold 2px;
     border-color: black;
-}
+}*/
 
 .horizontal-flex {
     width: 100%;
@@ -289,6 +266,16 @@ body {
     color: white;
 }
 
+@media (max-width: 600px) {
+    .info-box {
+        border: 2px white solid;
+    }
+
+    .info-box-title {
+        font-size: 60px;
+    }
+}
+
 .info-box-link {
     font-size: 36px;
 }
@@ -302,6 +289,13 @@ body {
     padding: 10px;
     transition-duration: 350ms;
     text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .info-box .info-box-link {
+        border: 3px gold solid;
+        color: white;
+    }
 }
 
 .info-box:hover .info-box-link {
@@ -338,14 +332,42 @@ body {
 }
   
 
-/* ACCORDION CLASSES */
+/* CV SECTION & ACCORDION CLASSES */
  
+#cv-container {
+    background-color: black;
+    color: white;
+    height: 92vh;
+    width: 100vw;
+    margin-top: 3vh;
+    padding-top: 5vh;
+}
+
+@media (max-width: 600px) {
+    #cv-container {
+        height: fit-content;
+    }
+}
+
+#cv-title {
+    font-size: 80px;
+    text-align: center;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    #cv-title {
+        font-size: 60px;
+    }
+}
+
 .accordion-container {
     display: flex;
     height: 80%;
     min-height: 530px;
     overflow: hidden;
     flex-direction: row;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 600px) {
@@ -360,7 +382,6 @@ body {
     font-size: calc(20px + 0.7vw);
     text-align: center;
     writing-mode: vertical-rl;
-    margin-bottom: 50px;
 
     cursor: pointer;
     border: none;
@@ -439,7 +460,10 @@ body {
 }
 
 
+/* FOOTER */
+
 #footer {
+    font-size: default;
     width: 100%;
     z-index: 100;
     height: fit-content;
@@ -449,6 +473,14 @@ body {
     display: flex;
     justify-content: space-evenly;
     transition: 0.2s linear;
+    text-align: center;
+    overflow-x: hide;
+}
+
+@media (max-width: 600px) {
+    #footer {
+        font-size: 10px;
+    }
 }
 
 #footer p {
