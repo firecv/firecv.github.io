@@ -37,7 +37,7 @@ acc.forEach((btn, i) => {
       }
     });
     document.documentElement.style.scrollBehavior = "auto";
-    window.scrollTo(0, document.body.scrollHeight);
+    //window.scrollTo(0, document.body.scrollHeight);
     document.documentElement.style.scrollBehavior = "smooth";
   });
 });
