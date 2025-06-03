@@ -182,7 +182,6 @@ body {
     padding: 5px;
     background-color: black;
     border-bottom: 2px gold solid;
-    margin-bottom: 40px;
     display: flex;
     justify-content: center;
     transition: 0.2s linear;
@@ -209,6 +208,12 @@ body {
     width: 100vw;
     margin-top: 3vh;
     padding-top: 5vh;
+}
+
+@media (max-width: 600px) {
+    #cv-container {
+        margin-bottom: 40px;
+    }
 }
 
 #cv-title {
