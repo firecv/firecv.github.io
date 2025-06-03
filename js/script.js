@@ -5,13 +5,13 @@ window.onload = function() {
 
 window.onscroll = function() {shrinkHeader()};
 
-function shrinkHeader() {
+/*function shrinkHeader() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
     document.getElementById("header").style.padding = "5px";
   } else {
     document.getElementById("header").style.padding = "20px";
   }
-}
+}*/
 
 var splashScreen = document.getElementById("splash");
 var splashButton = document.getElementById('splash-button');
