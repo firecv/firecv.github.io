@@ -126,6 +126,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 #title {
@@ -185,12 +186,7 @@ body {
     display: flex;
     justify-content: center;
     transition: 0.2s linear;
-}
-
-#header-items {
-    width: 50%;
-    display: flex;
-    justify-content: space-evenly;
+    text-align: center;
 }
 
 #header-title {
@@ -359,6 +355,7 @@ body {
     font-size: calc(20px + 0.7vw);
     text-align: center;
     writing-mode: vertical-rl;
+    margin-bottom: 50px;
 
     cursor: pointer;
     border: none;
