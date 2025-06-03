@@ -8,22 +8,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Jersey+10&family=Oswald:wght@200..700&family=Sixtyfour&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Jersey+10&family=Oswald:wght@200..700&family=PT+Sans+Narrow:wght@400;700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sixtyfour&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <!--<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
     </head>
-    <body class="vertical-flex">
-        <header id="header" class="vertical-flex">
-            <h1 id="title" class="jersey-10-regular">Web & Fullstack Development</h1>
-            <div id="subheader" class="horizontal-flex">
-                <img src="images/me.png" id="pfp" class="circle-frame">
-                <a id="subtitle" class="jersey-10-regular" href="#">Ethan Hattingh</a>
-            </div>
+    <body class="vertical-flex no-scroll">
+        <header id="header" class="horizontal-flex">
+            
         </header>
 
-        <p id="under-header" class="oswald-medium500">Learn more about me:</p>
+        <div id="splash">
+            <h1 class="roboto-mono-bold text-functions">Hi, I'm Ethan.</h1>
+            <h2 class="roboto-mono-normal text-functions">I do Web & Full-stack development.</h2>
+            <button id="splash-button" class="alumni-sans-bold button-style">let's get to know eachother</button>
+        </div>
 
-        <div class="info-flex">
+        <section class="info-flex">
             <div id="info-box1" class="info-box vertical-flex slight-hover">
                 <p class="info-box-title oswald-large700">Contact</p>
                 <div class="info-link-flex">
@@ -45,9 +45,9 @@
                     <a class="info-box-link oswald-medium500" href="https://www.linkedin.com/in/ethan-hattingh-84b135362/">Linkedin</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="cv-container">
+        <section id="cv-container">
             <h2 id="cv-title" class="oswald-large700">Check my CV:</h2>
             <div class="accordion-container">
                 <button id="accordion-button1" class="accordion active oswald-medium500">Bio</button>
@@ -108,7 +108,11 @@
                     <p class="oswald-small350">• Knowledge of the mechanics and terminology behind Web3 technologies</p>
                 </div>
               </div>
-        </div>
+        </section>
+
+        <footer>
+            <p>Background photo by <a href="https://unsplash.com/@kirp?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Andrew Kliatskyi</a> on <a href="https://unsplash.com/photos/background-pattern-0gTTqEaAW3g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
+        </footer>
 
         <script src="js/script.js"></script>
     </body>

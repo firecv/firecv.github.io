@@ -1,6 +1,5 @@
-window.onscroll = function() {shrinkHeader()};
-window.addEventListener('load', function() {shrinkHeader();});
-/* my browser: 1536 x 703 */
+//window.onscroll = function() {shrinkHeader()};
+/*
 function shrinkHeader() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
     document.getElementById("header").style.height = "10vh";
@@ -24,6 +23,15 @@ function shrinkHeader() {
     document.getElementById("under-header").style.marginBottom = "5vh";
   }
 
+}*/
+
+var splashScreen = document.getElementById("splash");
+var splashButton = document.getElementById('splash-button');
+splashButton.addEventListener('click', enableScroll);
+
+function enableScroll() {
+  splashScreen.classList.add('disappear');
+  document.body.classList.remove("no-scroll"); 
 }
 
 const acc = document.querySelectorAll('.accordion');
