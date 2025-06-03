@@ -140,6 +140,17 @@ body {
     margin: 40px;
 }
 
+@media (max-width: 600px) {
+    #title {
+        font-size: 60px;
+    }
+
+    #subtitle {
+        font-size: 30px;
+        margin: 25px;
+    }
+}
+
 #splash-button {
     font-size: 30px;
 }
