@@ -87,11 +87,13 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: black;
 }
 
 * {
     margin: 0px;
     padding: 0px;
+    scrollbar-color: gold black;
 }
 
 body {
@@ -101,6 +103,7 @@ body {
     background-repeat: repeat;
     background-attachment: scroll;
     background-size: cover;
+    overflow-x:hidden;
 }
 
 .no-scroll { 
@@ -160,12 +163,6 @@ body {
     cursor: pointer;
 }
 
-.appear {
-    visibility: visible;
-    opacity: 0;
-    transition: visibility 0s 0s, opacity 0.8s ease-in-out;
-}
-
 .disappear {
     visibility: hidden;
     opacity: 0;
@@ -177,19 +174,35 @@ body {
 
 #header {
     position: sticky;
-
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    height: fit-content;
+    padding: 20px;
+    background-color: black;
+    border-bottom: 2px gold solid;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    transition: 0.2s linear;
 }
 
 #header-items {
+    width: 50%;
     display: flex;
     justify-content: space-evenly;
 }
 
-h1 {
-
+#header-title {
+    font-size: 40px;
+    color: white;
+    transition: 0.5s;
+    text-decoration: none;
 }
 
-/* INFO BOXES, UNDER HEADER*/
+#header-title:hover {
+    color: gold;
+}
 
 /* CV SECTION */
 
@@ -213,7 +226,7 @@ h1 {
 
 .circle-frame {
     border-radius: 50%;
-    border-style: solid;
+    border-style: solid gold 2px;
     border-color: black;
 }
 
@@ -304,7 +317,7 @@ h1 {
 .info-box:hover .info-box-link:hover {
     border: 3px gold solid;
     background-color: gold;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -342,7 +355,7 @@ h1 {
   
 .accordion {
     background-color: #282828;
-    color: #ffffff;
+    color: white;
     font-size: calc(20px + 0.7vw);
     text-align: center;
     writing-mode: vertical-rl;
@@ -367,6 +380,7 @@ h1 {
   
 .accordion.active {
     background-color: gold;
+    color: black;
 }
 
 .panel {
@@ -420,4 +434,32 @@ h1 {
 
 .bigger-text {
     font-size: calc(12px + 0.8vw);
+}
+
+
+#footer {
+    width: 100%;
+    z-index: 100;
+    height: fit-content;
+    padding: 20px;
+    background-color: black;
+    border-top: 2px gold solid;
+    display: flex;
+    justify-content: space-evenly;
+    transition: 0.2s linear;
+}
+
+#footer p {
+    color: white;
+}
+
+#footer a {
+    color: gold;
+    text-decoration: none;
+    font-style: italic;
+    transition: 0.2s;
+}
+
+#footer a:hover {
+    font-weight: bold;
 }

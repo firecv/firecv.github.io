@@ -1,29 +1,17 @@
-//window.onscroll = function() {shrinkHeader()};
-/*
+window.onload = function() {
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+};
+
+window.onscroll = function() {shrinkHeader()};
+
 function shrinkHeader() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-    document.getElementById("header").style.height = "10vh";
-    document.getElementById("header").style.top = "-1.5vh";
-    document.getElementById("subheader").style.width = "calc(375px - 5vw)";
-    document.getElementById("title").style.fontSize = "0px";
-    document.getElementById("subtitle").style.fontSize = "5.6vh";
-    document.getElementById("pfp").style.width = "5.6vh";
-    document.getElementById("pfp").style.minWidth = "10px";
-    document.getElementById("under-header").style.marginTop = "25vh";
-    document.getElementById("under-header").style.marginBottom = "2vh";
+    document.getElementById("header").style.padding = "5px";
   } else {
-    document.getElementById("header").style.height = "75vh";
-    document.getElementById("header").style.top = "0px";
-    document.getElementById("subheader").style.width = "50vw";
-    document.getElementById("title").style.fontSize = "calc(36px + 5.5vw)";
-    document.getElementById("subtitle").style.fontSize = "calc(24px + 3.5vw)";
-    document.getElementById("pfp").style.width = "12.3vw";
-    document.getElementById("pfp").style.minWidth = "80px";
-    document.getElementById("under-header").style.marginTop = "80vh";
-    document.getElementById("under-header").style.marginBottom = "5vh";
+    document.getElementById("header").style.padding = "20px";
   }
-
-}*/
+}
 
 var splashScreen = document.getElementById("splash");
 var splashButton = document.getElementById('splash-button');
