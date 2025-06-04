@@ -98,12 +98,13 @@ html {
 
 body {
     top: 0;
-    height: 100%;
     background-image:url('../images/modern-bg.jpg'); /* Photo by Artem Sapegin on Unsplash*/
     background-repeat: repeat;
     background-attachment: scroll;
     background-size: cover;
-    overflow-x:hidden;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .no-scroll { 
@@ -452,6 +453,7 @@ body {
     transition: flex 0.6s ease-in-out;
     overflow-y: scroll;
     padding: calc(5px + 1vw);
+    box-sizing: border-box;
 }
 
 .panel.open a {
@@ -486,6 +488,7 @@ body {
     transition: 0.2s linear;
     text-align: center;
     overflow-x: hide;
+    margin-top: calc(700px - 100vh);
 }
 
 @media (max-width: 600px) {
