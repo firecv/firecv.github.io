@@ -172,7 +172,7 @@ body {
 
 .button-style:hover {
     background-color: gold;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
@@ -313,6 +313,22 @@ body {
     filter: grayscale(1);
     filter: brightness(0.35);
     border: 2px black solid;
+}
+
+@media (max-width: 800px) or (max-height: 800px) {
+    .bio-box-scroll p {
+        font-size: 16px;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        transition: 0.4s ease-in-out;
+    }
+
+    .bio-box-scroll #bio-image {
+        filter: grayscale(0);
+        filter: brightness(1);
+        border: 2px white solid;
+    }
 }
 
 /* INFO BOX CLASSES */
