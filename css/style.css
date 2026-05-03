@@ -489,6 +489,15 @@ p, li {
 
 .cv-chunk {
     width: 60vw;
+    margin-left: 5vw;
+}
+
+.cv-icon-container {
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cv-title {
@@ -536,6 +545,20 @@ p, li {
     }
 }
 
+@media (max-width: 800px) {
+    .cv-title {
+        font-size: 16px;
+    }
+
+    .cv-detail-box {
+        font-size: 14px;
+    }
+
+    .cv-icon-container {
+        margin-right: 20px;
+    }
+}
+
 .cv-list li {
     margin: 11px 0 11px 0;
 }
@@ -553,6 +576,24 @@ p, li {
 
 .cv-link:hover {
     text-decoration: underline;
+}
+
+/* FOOTER */
+
+#footer {
+    font-size: default;
+    width: 100%;
+    height: fit-content;
+    padding: 30px;
+    background-color: black;
+    border-top: 2px gold solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    overflow-x: hide;
+    margin-top: 0px;
+    color: white;
 }
 
 /* CV SECTION & ACCORDION CLASSES */
