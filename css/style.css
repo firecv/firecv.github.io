@@ -112,6 +112,10 @@ body {
   overflow: hidden; 
 } 
 
+p, li {
+    line-height: 1.8;
+}
+
 /* SPLASH SCREEN */
 
 #splash {
@@ -247,7 +251,7 @@ body {
     background-color: black;
     margin: 0 20px 2vh;
     transition: 0.5s;
-    margin-top: 40px;
+    margin-top: 5vh;
     margin-bottom: 70px;
     padding: 20px;
 }
@@ -315,7 +319,7 @@ body {
     border: 2px black solid;
 }
 
-@media (max-width: 800px) or (max-height: 800px) {
+@media (max-width: 1000px) or (max-height: 600px) or ((max-width: 1200px) and (max-height: 650px)) {
     .bio-box-scroll p {
         font-size: 16px;
         color: white;
@@ -407,13 +411,6 @@ body {
     text-decoration: none;
 }
 
-@media (max-width: 600px) {
-    .info-box .info-box-link {
-        border: 3px gold solid;
-        color: white;
-    }
-}
-
 .info-box:hover .info-box-link {
     border-radius: 3px;
     border: 3px white solid;
@@ -446,6 +443,21 @@ body {
 }
 
 @media (max-width: 600px) {
+    .info-box:nth-of-type(1) .info-box-link {
+        border: 3px #ff0000 solid;
+        color: white;
+    }
+
+    .info-box:nth-of-type(2) .info-box-link {
+        border: 3px #0099ff solid;
+        color: white;
+    }
+
+    .info-box:nth-of-type(3) .info-box-link {
+        border: 3px #00ff00 solid;
+        color: white;
+    }
+
     .info-box {
         min-width: 90vw;
         height: 40vh;
@@ -464,7 +476,6 @@ body {
 
 .cv-box {
     width: 100%;
-    height: 1000px;
     border-top: 2px gold solid;
     display: flex;
     flex-direction: column;
@@ -472,8 +483,77 @@ body {
     align-items: center;
     background-color: black;
     margin-top: 40px;
+    padding-top: 40px;
+    text-align: left;
 }
 
+.cv-chunk {
+    width: 60vw;
+}
+
+.cv-title {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cv-icon-image {
+    width: 100px;
+    height: auto;
+}
+
+.cv-detail-box {
+    color: white;
+    font-size: 16px;
+    width: 100%;
+    height: fit-content;
+    text-align: left;
+    margin: 20px auto 40px auto;
+    padding: 20px;
+}
+
+@media (max-width: 1000px) {
+    .cv-title {
+        font-size: 20px;
+        color: white;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .cv-icon-image {
+        width: 60px;
+        height: auto;
+    }
+
+    .cv-chunk {
+        width: 90vw;
+    }
+
+    .cv-detail-box {
+        max-height: 70vh;
+        overflow-y: scroll;
+    }
+}
+
+.cv-list li {
+    margin: 11px 0 11px 0;
+}
+
+.cv-list li ul {
+    margin-left: 40px;
+}
+
+.cv-link {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cv-link:hover {
+    text-decoration: underline;
+}
 
 /* CV SECTION & ACCORDION CLASSES */
 /* 

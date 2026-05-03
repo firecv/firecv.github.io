@@ -13,16 +13,19 @@
         <!--<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
     </head>
     <body class="vertical-flex no-scroll">
+        <!--Header-->
         <header id="header">
             <a href="#" id="header-title" class="roboto-mono-bold">Ethan Hattingh</a>
         </header>
 
+        <!--Splash screen (the thing with my name & that get to know each other button)-->
         <div id="splash">
             <p id="title" class="roboto-mono-bold text-functions">Hi, I'm Ethan.</p>
             <p id="subtitle" class="roboto-mono-normal text-functions">I do Web & Full-stack development.</p>
             <button id="splash-button" class="alumni-sans-bold button-style">LET'S GET TO KNOW EACH OTHER</button>
         </div>
 
+        <!--Bio (the one with my picture and some details about me)-->
         <section id="bio-section" class="bio-box vertical-flex">
             <h1 class="bio-title roboto-mono-bold">A little about me:</h1>
             <img id="bio-image" src="images/me.png" alt="Profile Picture">
@@ -34,6 +37,7 @@
                 </p>
         </section>
 
+        <!--Contact info, CV pdfs, and socials-->
         <section class="info-flex">
             <div id="info-box1" class="info-box vertical-flex">
                 <p class="info-box-title roboto-mono-bold">Contact</p>
@@ -58,11 +62,81 @@
             </div>
         </section>
 
+        <!--CV but readable without having to download it-->
         <section id="cv-section" class="cv-box">
-            <div>
-                <p>AAAA</p>
+            <div class="vertical-flex">
+                <div class="cv-chunk horizontal-flex">
+                    <div class="cv-icon-containervertical-flex">
+                        <p class="cv-title roboto-mono-bold">Education</p>
+                        <img id="education-icon" class="cv-icon-image" src="images/cap.png" alt="Education Icon">
+                    </div>
+                    <div class="cv-detail-box">
+                        <p class="cv-textbody roboto-mono-normal">Engineer's degree in IT & Econometrics from the Białystok University of Technology.</p>
+                    </div>
+                </div>
+                <div class="cv-chunk horizontal-flex">
+                    <div class="cv-icon-container vertical-flex">
+                        <p class="cv-title roboto-mono-bold">Experience</p>
+                        <img id="work-icon" class="cv-icon-image" src="images/briefcase.png" alt="Work Icon">
+                    </div>
+                    <div class="cv-detail-box">
+                        <ul class="cv-list roboto-mono-normal">
+                            <li>Internship at <a class="cv-link" href="https://existo.pl/" target="_blank">Existo</a> (07.07.2025 - 31.12.2025) involving data analysis, visualization and reporting.</li>
+                            <li>Student projects, including:
+                                <ul>
+                                    <li><a class="cv-link" href="https://github.com/firecv/WorkBlocks" target="_blank">Cinema Suwałki</a> (thesis project) - a professional cinema website with Stripe API and AWS RDS integration.</li>
+                                    <li><a class="cv-link" href="https://github.com/firecv/WorkBlocks" target="_blank">WorkBlocks</a> - a simple C# console application for work scheduling.</li>
+                                    <li><a class="cv-link" href="https://github.com/CHOSZCZYKP/MiejskiDomKultury" target="_blank">Community Center App</a> (group project) - a WPF app made for a fictional community center - I handled the item reservation system and app styling.</li>
+                                    <li><a class="cv-link" href="https://github.com/firecv/" target="_blank">MonteCarlo</a> (group project) - an online casino - I handled the logic and UI functionality for the roulette and yahtzee games.</li>
+                                </ul>
+                            </li>
+                            <li>Voluntary work with <a class="cv-link" href="https://whatt4.eth.limo/" target="_blank">Whatt4</a>, editing articles and other posts for social media, for the following clients:
+                                <ul>
+                                    <li><a class="cv-link" href="https://dxdao.eth.link/" target="_blank">DXDao [now defunct]</a> (2022-2023)</li>
+                                    <li><a class="cv-link" href="https://www.metrom.xyz/en" target="_blank">Metrom</a> (2024)</li>
+                                    <li><a class="cv-link" href="https://outposts.io/" target="_blank">Outposts</a> (2024 - 2025)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cv-chunk horizontal-flex">
+                    <div class="cv-icon-container vertical-flex">
+                        <p class="cv-title roboto-mono-bold">Skills</p>
+                        <img id="skills-icon" class="cv-icon-image" src="images/lightbulb.png" alt="Skills Icon">
+                    </div>
+                    <div class="cv-detail-box">
+                        <ul class="cv-list roboto-mono-normal">
+                            <li>Hard Skills
+                                <ul>
+                                    <li>Languages: English, Polish, Lithuanian.</li>
+                                    <li>Coding and Markup Languages:
+                                        <ul>
+                                            <li>C# (ASP.NET MVC)</li>
+                                            <li>HTML, CSS & Javascript</li>
+                                            <li>SQL (MySQL & PL/SQL)</li>
+                                        </ul>
+                                    </li>
+                                    <li>Data cleaning, analysis and visualization using Excel & PowerBI.</li>
+                                    <li>UI planning with Figma.</li>
+                                    <li>Group work with a SCRUM system, using Git and Jira.</li>
+                                    <li>Social media management, article writing and editing.</li>
+                                </ul>
+                            </li>
+                            <li>Soft Skills
+                                <ul>
+                                    <li>Cooperation and fast communication in a group.</li>
+                                    <li>Understanding and implementing client specifications.</li>
+                                    <li>Punctual and hard-working.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
+
+
 
         <!--<section id="cv-container">
             <h2 id="cv-title" class="roboto-mono-bold">Check my CV:</h2>
@@ -132,6 +206,14 @@
             <p class="roboto-mono-normal">Website built by <a href="https://github.com/firecv/firecv.github.io">Ethan Hattingh</a></p>
             <p class="roboto-mono-normal">Background image by <a href="https://unsplash.com/@kirp?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Andrew Kliatskyi</a> on <a href="https://unsplash.com/photos/background-pattern-0gTTqEaAW3g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
         </footer>-->
+
+        <!-- background image: Mohammad Rahmani https://unsplash.com/photos/black-flat-screen-computer-monitor-oXlXu2qukGE
+            Icons are by Good Ware from Flaticon:
+            cap icon: https://www.flaticon.com/free-icon/cap_4344806
+            briefcase icon: https://www.flaticon.com/free-icon/briefcase_4440484
+            lightbulb icon: https://www.flaticon.com/free-icon/lightbulb_702814
+            terminal background: https://www.deviantart.com/cosmodahuskey/art/Fallout-Terminal-Effect-Video-563008913
+        -->
 
         <script src="js/script.js"></script>
     </body>
