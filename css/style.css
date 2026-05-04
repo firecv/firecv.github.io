@@ -3,16 +3,20 @@
 /* VARIABLES (color palette) */
 
 :root {
-    --bg-color: black;
-    --accent-color: gold;
-    --border-color: white;
-    --unfocus-color: gray;
-    --special-color1: #ff0000; /*Used to make each info box stand out more*/
-    --special-color2: #0099ff;
-    --special-color3: #00ff00;
+    --bg-color: rgb(241, 241, 241);
+    --bg-color-blur: rgba(241, 241, 241, 0.5);
+    --accent-color: rgb(150, 65, 255);
+    --border-color: rgb(0, 0, 0);
+    --unfocus-color: rgb(63, 63, 63);
+    --special-color1: rgb(247, 0, 255); /*Used to make each info box stand out more*/
+    --special-color2: rgb(75, 0, 238);
+    --special-color3: rgb(0, 213, 255);
 }
 
 /*ORIGINAL PALETTE
+
+rgb(255, 126, 206)
+
     --bg-color: black;
     --accent-color: gold;
     --border-color: white;
@@ -37,7 +41,7 @@ html {
 
 body {
     top: 0;
-    background-image:url('../images/mohammad-rahmani.jpg'); /* Photo by Artem Sapegin on Unsplash*/
+    background-image:url('../images/andrei-castanha.jpg'); /* Photo by Artem Sapegin on Unsplash*/
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -104,10 +108,10 @@ p, li {
 }
 
 .button-style {
-    border-radius: 3px;
-    border: 3px var(--accent-color) solid;
+    border-radius: 5px;
+    border: 3px var(--border-color) solid;
     background-color: rgba(0, 0, 0, 0);
-    color: var(--accent-color);
+    color: var(--border-color);
     backdrop-filter: blur(10px);
     padding: 10px;
     transition-duration: 350ms;
@@ -115,8 +119,10 @@ p, li {
 
 .button-style:hover {
     background-color: var(--accent-color);
+    border: 3px var(--accent-color) solid;
     color: var(--bg-color);
     cursor: pointer;
+    /*filter: drop-shadow(0px 0px 20px var(--unfocus-color));*/
 }
 
 .disappear {
@@ -140,7 +146,7 @@ p, li {
     border-bottom: 2px var(--accent-color) solid;
     display: flex;
     justify-content: center;
-    transition: 0.2s linear;
+    transition: 0.4s ease-in-out;
     text-align: center;
 }
 
@@ -185,21 +191,23 @@ p, li {
     min-width: 400px;
     height: fit-content;
     min-height: 330px;
-    border-radius: 5px;
-    border: 2px var(--border-color) solid;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-blur);
+    backdrop-filter: blur(15px);
+    filter: drop-shadow(0px 0px 20px var(--border-color));
     transition: 0.5s;
     margin-top: 5vh;
     margin-bottom: 70px;
     padding: 20px;
+    border-radius: 15px;
 }
 
 .bio-box-scroll {
     width: 60vw;
     height: fit-content;
     border-radius: 5px;
-    border: 2px var(--unfocus-color) solid;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-blur);
+    backdrop-filter: blur(15px);
+    filter: drop-shadow(0px 0px 0px var(--border-color));
     transition: 0.5s;
     margin-top: 5vh;
     margin-bottom: 40px;
@@ -289,9 +297,9 @@ p, li {
     min-width: 400px;
     height: 40vh;
     min-height: 330px;
-    border-radius: 5px;
-    border: 2px var(--unfocus-color) solid;
-    background-color: var(--bg-color);
+    border-radius: 15px;
+    background-color: var(--bg-color-blur);
+    backdrop-filter: blur(15px);
     transition: 0.2s ease-in-out;
 }
 
@@ -299,14 +307,24 @@ p, li {
     transform: scale(1.02);
 }
 
+.info-box:nth-of-type(1) {
+    filter: drop-shadow(0px 0px 0px var(--special-color1));
+}
+.info-box:nth-of-type(2) {
+    filter: drop-shadow(0px 0px 0px var(--special-color2));
+}
+.info-box:nth-of-type(3) {
+    filter: drop-shadow(0px 0px 0px var(--special-color3));
+}
+
 .info-box:nth-of-type(1):hover {
-    border: 2px var(--special-color1) solid;
+    filter: drop-shadow(-10px -10px 10px var(--special-color1));
 }
 .info-box:nth-of-type(2):hover {
-    border: 2px var(--special-color2) solid;
+    filter: drop-shadow(0px -10px 15px var(--special-color2));
 }
 .info-box:nth-of-type(3):hover {
-    border: 2px var(--special-color3) solid;
+    filter: drop-shadow(10px -10px 10px var(--special-color3));
 }
 
 .info-link-flex {
@@ -339,21 +357,19 @@ p, li {
 
 .info-box .info-box-link {
     border-radius: 5px;
-    border: 3px var(--unfocus-color) solid;
+    border: 3px var(--border-color) solid;
     background-color: rgba(0, 0, 0, 0);
-    color: var(--unfocus-color);
-    backdrop-filter: blur(10px);
+    color: var(--border-color);
     padding: 10px;
     transition-duration: 350ms;
     text-decoration: none;
 }
 
 .info-box:hover .info-box-link {
-    border-radius: 3px;
+    border-radius: 5px;
     border: 3px var(--border-color) solid;
     background-color: rgba(0, 0, 0, 0);
     color: var(--border-color);
-    backdrop-filter: blur(10px);
     padding: 10px;
     transition-duration: 350ms;
     text-decoration: none;
@@ -413,6 +429,7 @@ p, li {
 
 .cv-box {
     width: 100%;
+    height: fit-content;
     border-top: 2px var(--accent-color) solid;
     display: flex;
     flex-direction: column;
@@ -422,15 +439,21 @@ p, li {
     margin-top: 40px;
     padding-top: 40px;
     text-align: left;
+
+    /*position: sticky;
+    top: -2px;*/
 }
 
 .cv-chunk {
     width: 60vw;
+    height: fit-content;
     margin-left: 5vw;
+    align-items: flex-start;
 }
 
 .cv-icon-container {
     width: 10vw;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -452,10 +475,9 @@ p, li {
 .cv-detail-box {
     color: var(--border-color);
     font-size: 16px;
-    width: 100%;
+    width: 50vw;
     height: fit-content;
     text-align: left;
-    margin: 20px auto 40px auto;
     padding: 20px;
 }
 
@@ -531,176 +553,10 @@ p, li {
     overflow-x: hide;
     margin-top: 0px;
     color: var(--border-color);
+    z-index: 999;
 }
 
-/* CV SECTION & ACCORDION CLASSES */
-/* 
-#cv-container {
-    background-color: var(--bg-color);
-    color: var(--border-color);
-    height: 92vh;
-    width: 100vw;
-    margin-top: 3vh;
-    padding-top: 5vh;
-}
 
-@media (max-width: 600px) {
-    #cv-container {
-        height: fit-content;
-    }
-}
-
-#cv-title {
-    font-size: 80px;
-    text-align: center;
-    color: var(--border-color);
-}
-
-@media (max-width: 600px) {
-    #cv-title {
-        font-size: 60px;
-    }
-}
-
-.accordion-container {
-    display: flex;
-    height: 80%;
-    min-height: 530px;
-    overflow: hidden;
-    flex-direction: row;
-    margin-bottom: 50px;
-}
-
-@media (max-width: 600px) {
-    .accordion-container {
-        flex-direction: column;
-    }
-}
-  
-.accordion {
-    background-color: #282828;
-    color: var(--border-color);
-    font-size: calc(20px + 0.7vw);
-    text-align: center;
-    writing-mode: vertical-rl;
-
-    cursor: pointer;
-    border: none;
-    transform: rotate(180deg);
-    flex: 0 0 60px;
-    transition: 0.3s;
-}
-
-@media (max-width: 600px) {
-    .accordion {
-        writing-mode: horizontal-tb;
-        transform: rotate(0deg);
-    }
-}
-  
-.accordion:hover {
-    background-color: #878787;
-}
-  
-.accordion.active {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-}
-
-.panel {
-    background-color: var(--bg-color);
-    overflow-y: hidden;
-    flex: 0 0 0;
-    color: var(--bg-color);
-    transition: flex 0.6s ease-in-out;
-    padding: 2px;
-    height: 100%;
-}
-
-.panel p {
-    font-size: 24px;
-}
-
-.panel a {
-    font-size: 24px;
-    text-decoration: none;
-    color: var(--bg-color);
-}
-
-.panel ul {
-    margin-left: calc(50px + 2vw);
-    font-size: 20px;
-}
-
-.panel ul a {
-    font-size: 20px;
-}
-
-.panel.open {
-    flex: 1 1 0;
-    color: var(--border-color);
-    transition: flex 0.6s ease-in-out;
-    overflow-y: scroll;
-    padding: calc(5px + 1vw);
-    box-sizing: border-box;
-}
-
-.panel.open a {
-    text-decoration: none;
-    color: var(--border-color);
-    font-style: italic;
-    font-weight: 900;
-    transition: 0.5s;
-}
-
-.panel.open a:hover {
-    color: var(--accent-color);
-}
-
-.bigger-text {
-    font-size: calc(12px + 0.8vw);
-}
-    */
-
-/* FOOTER */
-/*
-#footer {
-    font-size: default;
-    width: 100%;
-    z-index: 100;
-    height: fit-content;
-    padding: 20px;
-    background-color: var(--bg-color);
-    border-top: 2px var(--accent-color) solid;
-    display: flex;
-    justify-content: space-evenly;
-    transition: 0.2s linear;
-    text-align: center;
-    overflow-x: hide;
-    margin-top: calc(700px - 100vh);
-}
-
-@media (max-width: 600px) {
-    #footer {
-        font-size: 10px;
-    }
-}
-
-#footer p {
-    color: var(--border-color);
-}
-
-#footer a {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-style: italic;
-    transition: 0.2s;
-}
-
-#footer a:hover {
-    font-weight: bold;
-}
-    */
 
 /* FONTS */
 

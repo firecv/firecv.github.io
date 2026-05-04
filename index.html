@@ -65,16 +65,18 @@
         <!--CV but readable without having to download it-->
         <section id="cv-section" class="cv-box">
             <div class="vertical-flex">
-                <div class="cv-chunk horizontal-flex">
+                <div id="cv-box1" class="cv-chunk horizontal-flex">
                     <div class="cv-icon-container">
                         <p class="cv-title roboto-mono-bold">Education</p>
                         <img id="education-icon" class="cv-icon-image" src="images/cap.png" alt="Education Icon">
                     </div>
                     <div class="cv-detail-box">
-                        <p class="cv-textbody roboto-mono-normal">Engineer's degree in IT & Econometrics from the Białystok University of Technology.</p>
+                        <ul class="cv-list roboto-mono-normal">
+                            <li>Engineer's degree in IT & Econometrics from the <a class="cv-link" href="https://pb.edu.pl/en/" target="_blank">Białystok University of Technology</a>.</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="cv-chunk horizontal-flex">
+                <div id="cv-box2" class="cv-chunk horizontal-flex">
                     <div class="cv-icon-container">
                         <p class="cv-title roboto-mono-bold">Experience</p>
                         <img id="work-icon" class="cv-icon-image" src="images/briefcase.png" alt="Work Icon">
@@ -86,7 +88,7 @@
                                 <ul>
                                     <li><a class="cv-link" href="https://github.com/firecv/WorkBlocks" target="_blank">Cinema Suwałki</a> (thesis project) - a professional cinema website with Stripe API and AWS RDS integration.</li>
                                     <li><a class="cv-link" href="https://github.com/firecv/WorkBlocks" target="_blank">WorkBlocks</a> - a simple C# console application for work scheduling.</li>
-                                    <li><a class="cv-link" href="https://github.com/CHOSZCZYKP/MiejskiDomKultury" target="_blank">Community Center App</a> (group project) - a WPF app made for a fictional community center - I handled the item reservation system and app styling.</li>
+                                    <li><a class="cv-link" href="https://github.com/CHOSZCZYKP/MiejskiDomKultury" target="_blank">Community Center App</a> (group project) - a WPF app made for a fictional community center - I handled the item reservation system and the basic app styling.</li>
                                     <li><a class="cv-link" href="https://github.com/firecv/" target="_blank">MonteCarlo</a> (group project) - an online casino - I handled the logic and UI functionality for the roulette and yahtzee games.</li>
                                 </ul>
                             </li>
@@ -100,7 +102,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="cv-chunk horizontal-flex">
+                <div id="cv-box3" class="cv-chunk horizontal-flex">
                     <div class="cv-icon-container">
                         <p class="cv-title roboto-mono-bold">Skills</p>
                         <img id="skills-icon" class="cv-icon-image" src="images/lightbulb.png" alt="Skills Icon">
@@ -138,81 +140,12 @@
 
         <!--Footer links use the same styling as cv links, so the class is reused-->
         <footer id="footer">
-            <p class="roboto-mono-normal">Website built by <a class="cv-link" href="https://github.com/firecv/firecv.github.io">Ethan Hattingh</a></p>
-            <p class="roboto-mono-normal">Background image by <a class="cv-link" href="https://unsplash.com/photos/black-flat-screen-computer-monitor-oXlXu2qukGE">Mohammad Rahmani</a> on <a class="cv-link" href="https://unsplash.com/@afgprogrammer">Unsplash</a></p>
-            <p class="roboto-mono-normal">CV Icons by <a class="cv-link" href="https://www.flaticon.com/authors/good-ware">Good Ware</a></p>
+            <p class="roboto-mono-normal">Website built by <a class="cv-link" href="https://github.com/firecv/firecv.github.io">Ethan Hattingh</a> without using generative AI</p>
+            <p class="roboto-mono-normal">Background image by <a class="cv-link" href="https://unsplash.com/@andreicastanha">Andrei Castanha</a> on <a class="cv-link" href="https://unsplash.com/photos/abstract-blue-and-pink-curved-lines-pattern-mAoMkGo4LGg">Unsplash</a></p>
+            <p class="roboto-mono-normal">CV section icons by <a class="cv-link" href="https://www.flaticon.com/authors/good-ware">Good Ware</a></p>
         </footer>
 
-        <!--<section id="cv-container">
-            <h2 id="cv-title" class="roboto-mono-bold">Check my CV:</h2>
-            <div class="accordion-container">
-                <button id="accordion-button1" class="accordion active alumni-sans-bold">Bio</button>
-                <div class="panel open">
-                    <p class="roboto-mono-normal">Hi! I'm <b>Ethan</b>, and I'm studying IT & Econometrics at the Białystok Technical University.<br><br>
-                        I'm most interested in backend and web development, as well as interpersonal work.<br>
-                        My specialty is <b>C# and web development</b>, but I'm also experienced with many other coding languages.<br><br>
-                        I've been living in Poland for about 10 years, and am fluent in English, Polish, and Lithuanian.<br>
-                        I'm punctual and hard-working, and I'm hoping to get experience working in IT.<br>
-                    </p>
-                    
-                </div>
-
-                <button id="accordion-button2" class="accordion alumni-sans-bold">Work Experience</button>
-                <div class="panel">
-                    <p class="roboto-mono-normal">• Voluntary work with <a class="cv-link" href="https://whatt4.eth.limo/" target="_blank">Whatt4</a> for the following clients:</p>
-                    <ul class="roboto-mono-normal bigger-text">
-                        <li><a href="https://dxdao.eth.link/" target="_blank">DXDao [now defunct]</a> (2022-2023) - Editing articles and other posts for social media.</li>
-                        <li><a href="https://www.metrom.xyz/en" target="_blank">Metrom</a> (2024) - Editing and ghostwriting articles on Medium.</li>
-                        <li><a href="https://outposts.io/" target="_blank">Outposts</a> (2024 - 2025) - Social media management.</li>
-                    </ul>
-                    <p class="roboto-mono-normal">• Student Projects:</p>
-                    <ul class="roboto-mono-normal bigger-text">
-                        <li><a href="https://github.com/firecv/WorkBlocks" target="_blank">WorkBlocks</a> - a simple C# console application for work scheduling.</li>
-                        <li><a href="https://github.com/firecv/firecv.github.io" target="_blank">This Website</a> - you're on it right now!</li>
-                        <li><a href="https://github.com/CHOSZCZYKP/MiejskiDomKultury" target="_blank">Community Center App (WIP)</a> - a group project app made for a fictional community center - I handled the item reservation system and app styling.</li>
-                        <li><a href="https://github.com/firecv/" target="_blank">MonteCarlo</a> - an online casino group project - I handled the logic and UI functionality for the roulette and yahtzee games.</li>
-                    </ul>
-                </div>
-              
-                <button id="accordion-button3" class="accordion alumni-sans-bold">Hard Skills</button>
-                <div class="panel">
-                    <p class="roboto-mono-normal">• Languages:</p>
-                    <ul class="roboto-mono-normal">
-                        <li>English</li>
-                        <li>Polish</li>
-                        <li>Lithuanian</li>
-                    </ul>
-                    <p class="roboto-mono-normal">• Coding and Markup Languages:</p>
-                    <ul class="roboto-mono-normal">
-                        <li>C# (including .NET)</li>
-                        <li>C++</li>
-                        <li>C</li>
-                        <li>SQL (primarily PL/SQL)</li>
-                        <li>Python</li>
-                        <li>Javascript</li>
-                        <li>Java</li>
-                        <li>HTML & CSS</li>
-                    </ul>
-                    <p class="roboto-mono-normal">• Group work with a SCRUM system, work with Jira and Git</p>
-                    <p class="roboto-mono-normal">• Experience with Figma</p>
-                    <p class="roboto-mono-normal">• Social media management, article writing and editing<br></p>
-                </div>
-              
-                <button id="accordion-button4" class="accordion alumni-sans-bold">Soft Skills</button>
-                <div class="panel">
-                    <p class="roboto-mono-normal">• Cooperation and open, consistent communication in a group</p>
-                    <p class="roboto-mono-normal">• Understanding and implementing client specifications</p>
-                    <p class="roboto-mono-normal">• Knowledge of the mechanics and terminology behind Web3 technologies</p>
-                </div>
-              </div>
-        </section>
-
-        <footer id="footer">
-            <p class="roboto-mono-normal">Website built by <a href="https://github.com/firecv/firecv.github.io">Ethan Hattingh</a></p>
-            <p class="roboto-mono-normal">Background image by <a href="https://unsplash.com/@kirp?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Andrew Kliatskyi</a> on <a href="https://unsplash.com/photos/background-pattern-0gTTqEaAW3g?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a></p>
-        </footer>-->
-
-        <!-- background image: Mohammad Rahmani https://unsplash.com/photos/black-flat-screen-computer-monitor-oXlXu2qukGE
+        <!-- background image: Andrei Castanha https://unsplash.com/photos/black-flat-screen-computer-monitor-oXlXu2qukGE
             Icons are by Good Ware from Flaticon:
             cap icon: https://www.flaticon.com/free-icon/cap_4344806
             briefcase icon: https://www.flaticon.com/free-icon/briefcase_4440484

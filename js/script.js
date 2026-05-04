@@ -22,3 +22,15 @@ window.addEventListener("scroll", function(){
     bioSection.classList.add("bio-box-scroll");
   }
 });
+
+
+var previousScroll = window.pageYOffset;
+window.onscroll = function() {
+  var currentScroll = window.pageYOffset;
+  if (previousScroll > currentScroll) {
+    document.getElementById("header").style.top = "0";
+  } else {
+    document.getElementById("header").style.top = "-80px";
+  }
+  previousScroll = currentScroll;
+};
