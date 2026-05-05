@@ -7,6 +7,7 @@
     --bg-color-blur: rgba(241, 241, 241, 0.5);
     --accent-color: rgb(150, 65, 255);
     --border-color: rgb(0, 0, 0);
+    --light-border-color: rgb(183, 183, 183);
     --unfocus-color: rgb(63, 63, 63);
     --special-color1: rgb(247, 0, 255); /*Used to make each info box stand out more*/
     --special-color2: rgb(75, 0, 238);
@@ -301,6 +302,7 @@ p, li {
     background-color: var(--bg-color-blur);
     backdrop-filter: blur(15px);
     transition: 0.2s ease-in-out;
+    margin-bottom: 20px;
 }
 
 .info-box:hover {
@@ -342,10 +344,6 @@ p, li {
 }
 
 @media (max-width: 600px) {
-    .info-box {
-        border: 2px var(--border-color) solid;
-    }
-
     .info-box-title {
         font-size: 60px;
     }
@@ -436,12 +434,9 @@ p, li {
     justify-content: center;
     align-items: center;
     background-color: var(--bg-color);
-    margin-top: 40px;
+    margin-top: 20px;
     padding-top: 40px;
     text-align: left;
-
-    /*position: sticky;
-    top: -2px;*/
 }
 
 .cv-chunk {
@@ -449,7 +444,40 @@ p, li {
     height: fit-content;
     margin-left: 5vw;
     align-items: flex-start;
+
+    background-color: var(--bg-color-blur);
+    border: var(--light-border-color) solid 2px;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: 0.3s ease-in-out;
 }
+
+.cv-chunk:hover {
+    border: var(--bg-color-blur) solid 2px;
+    background-color: var(--bg-color-blur);
+    backdrop-filter: blur(15px);
+    filter: drop-shadow(0px 0px 20px var(--border-color));
+    transition: 0.3s ease-in-out;
+    transform: scale(1.02);
+}
+
+/*
+#cv-chunk1 {
+    position: sticky;
+    top: 100px;
+}
+
+#cv-chunk2 {
+    position: sticky;
+    top: 130px;
+}
+
+#cv-chunk3 {
+    position: sticky;
+    top: 160px;
+}
+*/
 
 .cv-icon-container {
     width: 10vw;

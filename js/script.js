@@ -23,6 +23,14 @@ window.addEventListener("scroll", function(){
   }
 });
 
+var cvChunks = document.getElementsByClassName("cv-chunk");
+var cvBG = document.getElementById("cv-section");
+window.addEventListener("mouseover", function() {
+  cvBG.style.backgroundImage = "url(images/andrei-castanha.jpg)";
+});
+
+
+/* HIDE HEADER:
 
 var previousScroll = window.pageYOffset;
 window.onscroll = function() {
@@ -34,3 +42,4 @@ window.onscroll = function() {
   }
   previousScroll = currentScroll;
 };
+*/
