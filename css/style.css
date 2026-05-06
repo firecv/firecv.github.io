@@ -5,7 +5,8 @@
 :root {
     --bg-color: rgb(241, 241, 241);
     --bg-color-blur: rgba(241, 241, 241, 0.5);
-    --accent-color: rgb(150, 65, 255);
+    --bg-color-invis: rgb(241, 241, 241, 0);
+    --accent-color: rgb(87, 5, 187);
     --border-color: rgb(0, 0, 0);
     --light-border-color: rgb(183, 183, 183);
     --unfocus-color: rgb(63, 63, 63);
@@ -425,18 +426,46 @@ p, li {
   
 /* CV SECTION */
 
-.cv-box {
+.cv-section-container {
     width: 100%;
     height: fit-content;
     border-top: 2px var(--accent-color) solid;
+    background-color: var(--bg-color);
+    margin-top: 20px;
+}
+
+.cv-box {
+    width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--bg-color);
-    margin-top: 20px;
-    padding-top: 40px;
     text-align: left;
+    position: relative;
+    background-blend-mode: lighten;
+}
+
+.cv-box:has(#cv-chunk1:hover) {
+    background-image: url('../images/cv-bg1.jpg'); /*photo Piotr Awramiuk*/
+    background-color: var(--bg-color-invis);
+    transition: 0.5s ease-in-out;
+}
+.cv-box:has(#cv-chunk2:hover) {
+    background-image: url('../images/cv-bg2.jpg');
+    background-color: var(--bg-color-invis);
+    transition: 0.5s ease-in-out;
+}
+.cv-box:has(#cv-chunk3:hover) {
+    background-image: url('../images/cv-bg3.jpg');
+    background-color: var(--bg-color-invis);
+    transition: 0.5s ease-in-out;
+}
+
+@keyframes fadeImage {
+    from { background-color: var(--bg-color) }
+    to { opacity: var(--bg-invis); }
 }
 
 .cv-chunk {
@@ -446,38 +475,27 @@ p, li {
     align-items: flex-start;
 
     background-color: var(--bg-color-blur);
+    backdrop-filter: blur(15px);
     border: var(--light-border-color) solid 2px;
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
     transition: 0.3s ease-in-out;
+    z-index: 21;
+}
+
+#cv-chunk1 {
+    margin-top: 40px;
 }
 
 .cv-chunk:hover {
     border: var(--bg-color-blur) solid 2px;
     background-color: var(--bg-color-blur);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(35px);
     filter: drop-shadow(0px 0px 20px var(--border-color));
     transition: 0.3s ease-in-out;
     transform: scale(1.02);
 }
-
-/*
-#cv-chunk1 {
-    position: sticky;
-    top: 100px;
-}
-
-#cv-chunk2 {
-    position: sticky;
-    top: 130px;
-}
-
-#cv-chunk3 {
-    position: sticky;
-    top: 160px;
-}
-*/
 
 .cv-icon-container {
     width: 10vw;
