@@ -7,6 +7,7 @@
     --bg-color-blur: rgba(241, 241, 241, 0.5);
     --bg-color-invis: rgb(241, 241, 241, 0);
     --accent-color: rgb(87, 5, 187);
+    --accent-color-hover: rgb(204, 0, 184);
     --border-color: rgb(0, 0, 0);
     --light-border-color: rgb(183, 183, 183);
     --unfocus-color: rgb(63, 63, 63);
@@ -43,7 +44,7 @@ html {
 
 body {
     top: 0;
-    background-image:url('../images/andrei-castanha.jpg'); /* Photo by Artem Sapegin on Unsplash*/
+    background-image:url('../images/background.jpg'); /* Photo by Artem Sapegin on Unsplash*/
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -197,7 +198,7 @@ p, li {
     backdrop-filter: blur(15px);
     filter: drop-shadow(0px 0px 20px var(--border-color));
     transition: 0.5s;
-    margin-top: 5vh;
+    margin-top: 2vh;
     margin-bottom: 70px;
     padding: 20px;
     border-radius: 15px;
@@ -206,12 +207,12 @@ p, li {
 .bio-box-scroll {
     width: 60vw;
     height: fit-content;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: var(--bg-color-blur);
     backdrop-filter: blur(15px);
     filter: drop-shadow(0px 0px 0px var(--border-color));
     transition: 0.5s;
-    margin-top: 5vh;
+    margin-top: 2vh;
     margin-bottom: 40px;
     padding: 20px;
 }
@@ -491,7 +492,7 @@ p, li {
 .cv-chunk:hover {
     border: var(--bg-color-blur) solid 2px;
     background-color: var(--bg-color-blur);
-    backdrop-filter: blur(35px);
+    backdrop-filter: blur(200px);
     filter: drop-shadow(0px 0px 20px var(--border-color));
     transition: 0.3s ease-in-out;
     transform: scale(1.02);
@@ -580,7 +581,9 @@ p, li {
 }
 
 .cv-link:hover {
-    text-decoration: underline;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    text-decoration: none;
 }
 
 /* FOOTER */
@@ -606,61 +609,6 @@ p, li {
 
 /* FONTS */
 
-.oswald-small350 { /* https://fonts.google.com/specimen/Oswald */
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 350;
-    font-style: normal;
-}
-
-.oswald-medium500 { 
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-}
-
-.oswald-large700 {
-    font-family: "Oswald", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-}
-
-.jersey-10-regular { /* https://fonts.google.com/specimen/Jersey+10 */
-    font-family: "Jersey 10", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.sixtyfour-default { /* https://fonts.google.com/specimen/Sixtyfour */
-    font-family: "Sixtyfour", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings:
-      "BLED" 0,
-      "SCAN" 0;
-}
-
-.abril-fatface-regular { /* https://fonts.google.com/specimen/Abril+Fatface */
-    font-family: "Abril Fatface", serif;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.pt-sans-narrow-regular {
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.pt-sans-narrow-bold {
-  font-family: "PT Sans Narrow", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-  
 .roboto-mono-normal {
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
@@ -686,5 +634,11 @@ p, li {
   font-family: "Alumni Sans SC", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
+  font-style: normal;
+}
+
+.fugaz-one-regular {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
