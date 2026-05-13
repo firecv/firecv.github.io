@@ -416,9 +416,9 @@ p, li {
         height: 40vh;
     }
 
-    .info-link-flex {
+    /* .info-link-flex {
         flex-direction: column;
-    }
+    } */
 
     .info-box-link {
         margin-top: 15px;
