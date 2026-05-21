@@ -3,31 +3,32 @@ const genHTML = document.getElementById("json-output");
 document.addEventListener("DOMContentLoaded", function() {
     const jsonFile = document.getElementById("json-file-upload");
 
-    jsonFile.addEventListener("change", (event) => {
+    jsonFile.addEventListener("change", async (event) => {
         const file = event.target.files[0];
         if (!file) {
             return;
         }
 
-        const data = JSON.parse(file.text());
+        const fileText = await file.text();
+        const data = JSON.parse(fileText);
         if (!data || data.length === 0) {
             genHTML.innerHTML = "<p>No data.</p>";
             return;
         }
 
         genHTML.innerHTML = "";
-        genHTML.appendChild(generateHTMLFromJSON(data, genHTML));
+        genHTML.appendChild(generateHTMLFromJSON(data));
     });
 });
 
-function generateHTMLFromJSON(jsonData, parent) {
+function generateHTMLFromJSON(jsonData) {
     if (Array.isArray(jsonData)) {
 
-        const arrayElement = loadTemplate("array-template");
+        const arrayElement = cloneTemplate("array-template");
         const arrayElementChildren = arrayElement.querySelector("[data-children]")
 
         jsonData.forEach(object => {
-            const objectElement = generateHTMLFromJSON(object, parent);
+            const objectElement = generateHTMLFromJSON(object);
 
             arrayElementChildren.appendChild(objectElement);
         });
@@ -36,15 +37,23 @@ function generateHTMLFromJSON(jsonData, parent) {
 
     } else if (typeof jsonData === "object" && jsonData !== null) {
 
-        const objectElement = loadTemplate("object-template");
+        const objectElement = cloneTemplate("object-template");
         const objectElementChildren = objectElement.querySelector("[data-children]")
         
         for (const key in jsonData) {
             if (jsonData.hasOwnProperty(key)) {
-                const keyvalueElement = loadTemplate("key-value-template");
-                
+                const keyvalueElement = cloneTemplate("key-value-template");
+                const keyvalueChildren = keyvalueElement.querySelector("[data-children]");
+                const value = jsonData[key];
+
                 keyvalueElement.querySelector("[data-name]").textContent = key;
-                keyvalueElement.querySelector("[data-value]").textContent = jsonData[key];
+
+                if (Array.isArray(value) || (typeof value === "object" && value !== null)) {
+                    keyvalueChildren.appendChild(generateHTMLFromJSON(value));
+                } else {
+                    keyvalueChildren.appendChild(cloneTemplate("value-text-template"));
+                    keyvalueChildren.querySelector("[data-value]").textContent = jsonData[key];
+                }
                 
                 objectElementChildren.appendChild(keyvalueElement);
             }
@@ -53,12 +62,13 @@ function generateHTMLFromJSON(jsonData, parent) {
         return objectElement;
 
     } else {
-        return document.createTextNode(jsonData);
+        //return document.createTextNode(jsonData);
+        return null;
     }
 }
 
-function loadTemplate(templateId) {
+function cloneTemplate(templateId) {
     const template = document.getElementById(templateId);
 
-    return template.cloneNode(true).content;
+    return template.content.cloneNode(true);
 }
