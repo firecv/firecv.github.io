@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Fugaz+One&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/json-style.css">
+        <link rel="stylesheet" href="css/fonts.css">
+    </head>
+    <body class="vertical-flex no-scroll">
+        <!--Header-->
+        <header id="header">
+            <a href="#" id="header-title" class="fugaz-one-regular">"JSON":"Reader"</a>
+        </header>
+
+        <input type="file" id="json-file-upload" accept=".json">
+
+        <section id="json-output" data-name="json-root">
+            
+        </section>
+
+        <script src="js/json-script.js"></script>
+    </body>
+
+    <template id="array-template">
+        <div class="entry-div">
+            <p data-name></p>
+            <div data-children></div>
+        </div>
+    </template>
+
+    <template id="object-template">
+        <div class="entry-div">
+            <div data-children></div>
+        </div>
+    </template>
+
+    <template id="key-value-template">
+        <div class="entry-div">
+            <p data-name></p>
+            <p data-value></p>
+        </div>
+    </template>
+</html>

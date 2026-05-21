@@ -4,11 +4,11 @@ window.onload = function() {
 };
 
 var splashScreen = document.getElementById("splash");
-var splashButton = document.getElementById('splash-button');
-splashButton.addEventListener('click', enableScroll);
+var splashButton = document.getElementById("splash-button");
+splashButton.addEventListener("click", enableScroll);
 
 function enableScroll() {
-  splashScreen.classList.add('disappear');
+  splashScreen.classList.add("disappear");
   document.body.classList.remove("no-scroll"); 
 }
 
