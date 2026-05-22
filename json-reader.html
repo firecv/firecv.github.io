@@ -15,10 +15,10 @@
     <body class="vertical-flex no-scroll">
         <!--Header-->
         <header id="header">
-            <a href="#" id="header-title" class="fugaz-one-regular">"JSON":"Reader"</a>
+            <a href="#" id="header-title" class="fugaz-one-regular">JSON:Reader</a>
         </header>
 
-        <input type="file" id="json-file-upload" accept=".json">
+        <input class="upload-button-initial" type="file" id="json-file-upload" accept=".json">
 
         <section id="json-output" data-name="json-root">
             
@@ -28,26 +28,26 @@
     </body>
 
     <template id="array-template">
-        <div class="entry-div">
+        <div class="array-div">
             <p data-name></p>
             <div data-children></div>
         </div>
     </template>
 
     <template id="object-template">
-        <div class="entry-div">
+        <div class="entry-div object-div">
             <div data-children></div>
         </div>
     </template>
 
     <template id="key-value-template">
-        <div class="entry-div">
-            <p data-name></p>
-            <div data-children></div>
+        <div class="entry-div kv-div">
+            <p class="kv-key roboto-mono-bold" data-name></p>
+            <div class="kv-value-container" data-children></div>
         </div>
     </template>
 
     <template id="value-text-template">
-        <p data-value></p>
+        <p class="kv-value roboto-mono-normal" data-value></p>
     </template>
 </html>

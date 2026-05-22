@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
+        //jsonFile.classList.remove("alumni-sans-bold");
+        jsonFile.classList.remove("upload-button-initial");
+        //jsonFile.classList.add("alumni-sans-normal");
+        jsonFile.classList.add("upload-button");
+
         genHTML.innerHTML = "";
         genHTML.appendChild(generateHTMLFromJSON(data));
     });
