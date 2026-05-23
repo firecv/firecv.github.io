@@ -18,7 +18,9 @@
             <a href="#" id="header-title" class="fugaz-one-regular">JSON:Reader</a>
         </header>
 
+        <p class="instruction-text">Upload a JSON file, then view and edit it!</p>
         <input class="upload-button-initial" type="file" id="json-file-upload" accept=".json">
+        <p class="hidden-text">JSON file successfully uploaded! To edit text values, just click</p>
 
         <section id="json-output" data-name="json-root">
             <!-- Populated with the templates (under the body code) in json-script.js -->
@@ -26,6 +28,9 @@
 
         <script src="js/json-script.js"></script>
     </body>
+
+
+    <!-- Templates go here -->
 
     <template id="array-template">
         <div class="array-div">
@@ -48,6 +53,10 @@
     </template>
 
     <template id="value-text-template">
-        <p class="kv-value roboto-mono-normal" data-value></p>
+        <p class="kv-value roboto-mono-normal" contenteditable="true" data-value></p>
+    </template>
+
+    <template id="value-number-template">
+        <input type="number" class="kv-value roboto-mono-normal" data-value />
     </template>
 </html>

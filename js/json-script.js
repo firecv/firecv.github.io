@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function generateHTMLFromJSON(jsonData) {
     if (Array.isArray(jsonData)) {
+        // ARRAY - holds several objects
 
         const arrayElement = cloneTemplate("array-template");
         const arrayElementChildren = arrayElement.querySelector("[data-children]")
@@ -41,12 +42,15 @@ function generateHTMLFromJSON(jsonData) {
         return arrayElement;
 
     } else if (typeof jsonData === "object" && jsonData !== null) {
+        // OBJECT - holds several value-key pairs
 
         const objectElement = cloneTemplate("object-template");
         const objectElementChildren = objectElement.querySelector("[data-children]")
         
         for (const key in jsonData) {
             if (jsonData.hasOwnProperty(key)) {
+                // KEY-VALUE PAIR - holds a key and a value of some kind
+
                 const keyvalueElement = cloneTemplate("key-value-template");
                 const keyvalueChildren = keyvalueElement.querySelector("[data-children]");
                 const value = jsonData[key];
@@ -54,10 +58,16 @@ function generateHTMLFromJSON(jsonData) {
                 keyvalueElement.querySelector("[data-name]").textContent = key;
 
                 if (Array.isArray(value) || (typeof value === "object" && value !== null)) {
+                    // if the value is an array of objects instead of a value
                     keyvalueChildren.appendChild(generateHTMLFromJSON(value));
                 } else {
-                    keyvalueChildren.appendChild(cloneTemplate("value-text-template"));
-                    keyvalueChildren.querySelector("[data-value]").textContent = jsonData[key];
+                    if (typeof value == "number") {
+                        keyvalueChildren.appendChild(cloneTemplate("value-number-template"));
+                        keyvalueChildren.querySelector("[data-value]").value = jsonData[key];
+                    } else {
+                        keyvalueChildren.appendChild(cloneTemplate("value-text-template"));
+                        keyvalueChildren.querySelector("[data-value]").textContent = jsonData[key];
+                    }
                 }
                 
                 objectElementChildren.appendChild(keyvalueElement);
