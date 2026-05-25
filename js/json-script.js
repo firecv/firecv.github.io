@@ -97,12 +97,21 @@ function cloneTemplate(templateId) {
 
 
 document.getElementById("download-button").addEventListener("click", () => {
-    const newFileJSON = htmlToJson(genHTML.firstElementChild);
-    downloadNewJSON(newFileJSON);
+    const newFileObject = htmlToJson(genHTML.firstElementChild);
+    downloadNewJSON(newFileObject);
 });
 
-function downloadNewJSON(newFileJSON) {
-
+// Largely learnt from https://www.30secondsofcode.org/js/s/json-to-file/
+function downloadNewJSON(newFileObject) {
+    const newFileJSON = JSON.stringify(newFileObject, null, 2);
+    const jsonBlob = new Blob([newFileJSON], { type: "application/json" });
+    const jsonUrl = URL.createObjectURL(jsonBlob);
+    const jsonPseudoLink = document.createElement("a");
+    jsonPseudoLink.href = jsonUrl;
+    jsonPseudoLink.download = "$json-reader-output.json";
+    jsonPseudoLink.click();
+    URL.revokeObjectURL(jsonUrl);
+    jsonPseudoLink.remove();
 }
 
 function htmlToJson(objectElement) {
@@ -112,37 +121,45 @@ function htmlToJson(objectElement) {
     if (objectElement.hasAttribute("data-object")) {
         return handleObject(objectElement);
     }
-    if (objectElement.hasAttribute("data-kv")) {
-        return handleKeyValuePair(objectElement);
-    }
     if (objectElement.hasAttribute("data-text") || objectElement.hasAttribute("data-number")) {
         return handleValue(objectElement);
     }
 }
 
+// for each object in the html "array", creates an identical one in an array, which is then returned
 function handleArray(objectElement) {
-    // 1. gets array of child elements
-    // 2. loops through them with htmlToJson
-    // 3. returns array of this
+    const newArray = [];
+    const objectElementChildren = objectElement.querySelector(":scope > [data-children]");
+
+    objectElementChildren.querySelectorAll(":scope > [data-object]").forEach(newObject => {
+        const newObject = htmlToJson(obj);
+        newArray.push(newObject);
+    });
+
+    return newArray;
 }
 
+// for each KV-pair in the html "object", creates an identical one in an object, which is then returned
 function handleObject(objectElement) {
-    // 1. gets array(?) of child elements
-    // 2. loops through them with htmlToJson
-    // 3. returns object of this
+    const newObject = {};
+    const objectElementChildren = objectElement.querySelector(":scope > [data-children]");
+    
+    objectElementChildren.querySelectorAll(":scope > [data-kv]").forEach(kv => {
+        const kvKey = kv.querySelector(":scope > [data-name]").textContent;
+        const kvValue = htmlToJson(kv.querySelector(":scope > [data-children]").firstElementChild);
+
+        newObject[keyKey] = kvValue;
+    });
+
+    return newObject;
 }
 
-function handleKeyValuePair(objectElement) {
-    // 1. gets key
-    // 2. runs htmlToJson on value
-    // 3. returns them as a pair
-}
-
+// gets KV-pair's value (if it isn't an array) and returns
 function handleValue(objectElement) {
     if (objectElement.hasAttribute("data-number")) {
         // this has to be a separate check, because data-text doesn't have a .value
-        if (!isNaN(objectElement.value)) return Number(objectElement.value);
+        if (!isNaN(objectElement.value)) return Number(objectElement.value.trim());
     } else {
-        return objectElement.textContent;
+        return objectElement.textContent.trim();
     }
 }
