@@ -1,7 +1,12 @@
 const genHTML = document.getElementById("json-output");
 
+// FILE UPLOAD
+
 document.addEventListener("DOMContentLoaded", function() {
     const jsonFile = document.getElementById("json-file-upload");
+    const instruction1 = document.getElementById("instruction-text1");
+    const instruction2 = document.getElementById("instruction-text2");
+    const downloadBtn = document.getElementById("download-button");
 
     jsonFile.addEventListener("change", async (event) => {
         const file = event.target.files[0];
@@ -16,10 +21,16 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        //jsonFile.classList.remove("alumni-sans-bold");
         jsonFile.classList.remove("upload-button-initial");
-        //jsonFile.classList.add("alumni-sans-normal");
         jsonFile.classList.add("upload-button");
+
+        instruction1.classList.remove("instruction-text");
+        instruction1.classList.add("hidden-text");
+        
+        instruction2.classList.remove("hidden-text");
+        instruction2.classList.add("instruction-text");
+        
+        downloadBtn.classList.remove("hidden-text");
 
         genHTML.innerHTML = "";
         genHTML.appendChild(jsonToHtml(data));
@@ -96,6 +107,8 @@ function cloneTemplate(templateId) {
 
 
 
+// FILE DOWNLOAD
+
 document.getElementById("download-button").addEventListener("click", () => {
     const newFileObject = htmlToJson(genHTML.firstElementChild);
     downloadNewJSON(newFileObject);
@@ -108,7 +121,7 @@ function downloadNewJSON(newFileObject) {
     const jsonUrl = URL.createObjectURL(jsonBlob);
     const jsonPseudoLink = document.createElement("a");
     jsonPseudoLink.href = jsonUrl;
-    jsonPseudoLink.download = "$json-reader-output.json";
+    jsonPseudoLink.download = "json-output.json";
     jsonPseudoLink.click();
     URL.revokeObjectURL(jsonUrl);
     jsonPseudoLink.remove();
@@ -131,7 +144,7 @@ function handleArray(objectElement) {
     const newArray = [];
     const objectElementChildren = objectElement.querySelector(":scope > [data-children]");
 
-    objectElementChildren.querySelectorAll(":scope > [data-object]").forEach(newObject => {
+    objectElementChildren.querySelectorAll(":scope > [data-object]").forEach(obj => {
         const newObject = htmlToJson(obj);
         newArray.push(newObject);
     });
@@ -148,7 +161,7 @@ function handleObject(objectElement) {
         const kvKey = kv.querySelector(":scope > [data-name]").textContent;
         const kvValue = htmlToJson(kv.querySelector(":scope > [data-children]").firstElementChild);
 
-        newObject[keyKey] = kvValue;
+        newObject[kvKey] = kvValue;
     });
 
     return newObject;
@@ -158,7 +171,11 @@ function handleObject(objectElement) {
 function handleValue(objectElement) {
     if (objectElement.hasAttribute("data-number")) {
         // this has to be a separate check, because data-text doesn't have a .value
-        if (!isNaN(objectElement.value)) return Number(objectElement.value.trim());
+        if (!isNaN(objectElement.value)) {
+            return Number(objectElement.value.trim());
+        } else {
+            return objectElement.value.trim();
+        }
     } else {
         return objectElement.textContent.trim();
     }
