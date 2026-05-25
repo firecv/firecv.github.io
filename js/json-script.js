@@ -22,11 +22,17 @@ document.addEventListener("DOMContentLoaded", function() {
         jsonFile.classList.add("upload-button");
 
         genHTML.innerHTML = "";
-        genHTML.appendChild(generateHTMLFromJSON(data));
+        genHTML.appendChild(jsonToHtml(data));
     });
 });
 
-function generateHTMLFromJSON(jsonData) {
+function jsonToHtml(jsonData) {
+    /*
+    Generates and populates templates based on current JSON item (arrays, objects, and key-value pairs)
+    Value in KV pair can be an array so it's handled as a separate template from the KV pair
+    First item encountered is one solid JSON object (makes sense when you think about it)
+    Recursion for each child item
+    */
     if (Array.isArray(jsonData)) {
         // ARRAY - holds several objects
 
@@ -34,7 +40,7 @@ function generateHTMLFromJSON(jsonData) {
         const arrayElementChildren = arrayElement.querySelector("[data-children]")
 
         jsonData.forEach(object => {
-            const objectElement = generateHTMLFromJSON(object);
+            const objectElement = jsonToHtml(object);
 
             arrayElementChildren.appendChild(objectElement);
         });
@@ -59,14 +65,14 @@ function generateHTMLFromJSON(jsonData) {
 
                 if (Array.isArray(value) || (typeof value === "object" && value !== null)) {
                     // if the value is an array of objects instead of a value
-                    keyvalueChildren.appendChild(generateHTMLFromJSON(value));
+                    keyvalueChildren.appendChild(jsonToHtml(value));
                 } else {
                     if (typeof value == "number") {
                         keyvalueChildren.appendChild(cloneTemplate("value-number-template"));
-                        keyvalueChildren.querySelector("[data-value]").value = jsonData[key];
+                        keyvalueChildren.querySelector("[data-number]").value = jsonData[key];
                     } else {
                         keyvalueChildren.appendChild(cloneTemplate("value-text-template"));
-                        keyvalueChildren.querySelector("[data-value]").textContent = jsonData[key];
+                        keyvalueChildren.querySelector("[data-text]").textContent = jsonData[key];
                     }
                 }
                 
@@ -86,4 +92,57 @@ function cloneTemplate(templateId) {
     const template = document.getElementById(templateId);
 
     return template.content.cloneNode(true);
+}
+
+
+
+document.getElementById("download-button").addEventListener("click", () => {
+    const newFileJSON = htmlToJson(genHTML.firstElementChild);
+    downloadNewJSON(newFileJSON);
+});
+
+function downloadNewJSON(newFileJSON) {
+
+}
+
+function htmlToJson(objectElement) {
+    if (objectElement.hasAttribute("data-array")) {
+        return handleArray(objectElement);
+    }
+    if (objectElement.hasAttribute("data-object")) {
+        return handleObject(objectElement);
+    }
+    if (objectElement.hasAttribute("data-kv")) {
+        return handleKeyValuePair(objectElement);
+    }
+    if (objectElement.hasAttribute("data-text") || objectElement.hasAttribute("data-number")) {
+        return handleValue(objectElement);
+    }
+}
+
+function handleArray(objectElement) {
+    // 1. gets array of child elements
+    // 2. loops through them with htmlToJson
+    // 3. returns array of this
+}
+
+function handleObject(objectElement) {
+    // 1. gets array(?) of child elements
+    // 2. loops through them with htmlToJson
+    // 3. returns object of this
+}
+
+function handleKeyValuePair(objectElement) {
+    // 1. gets key
+    // 2. runs htmlToJson on value
+    // 3. returns them as a pair
+}
+
+function handleValue(objectElement) {
+    if (objectElement.hasAttribute("data-number")) {
+        // this has to be a separate check, because data-text doesn't have a .value
+        if (!isNaN(objectElement.value)) return Number(objectElement.value);
+    } else {
+        return objectElement.textContent;
+    }
 }

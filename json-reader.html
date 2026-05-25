@@ -20,6 +20,7 @@
 
         <p class="instruction-text">Upload a JSON file, then view and edit it!</p>
         <input class="upload-button-initial" type="file" id="json-file-upload" accept=".json">
+        <button id="download-button">DOWNLOAD</button>
         <p class="hidden-text">JSON file successfully uploaded! To edit text values, just click</p>
 
         <section id="json-output" data-name="json-root">
@@ -33,30 +34,29 @@
     <!-- Templates go here -->
 
     <template id="array-template">
-        <div class="array-div">
-            <p data-name></p>
+        <div class="array-div" data-array>
             <div data-children></div>
         </div>
     </template>
 
     <template id="object-template">
-        <div class="entry-div object-div">
+        <div class="object-div entry-div" data-object>
             <div data-children></div>
         </div>
     </template>
 
     <template id="key-value-template">
-        <div class="entry-div kv-div">
+        <div class="kv-div entry-div" data-kv>
             <p class="kv-key roboto-mono-bold" data-name></p>
             <div class="kv-value-container" data-children></div>
         </div>
     </template>
 
     <template id="value-text-template">
-        <p class="kv-value roboto-mono-normal" contenteditable="true" data-value></p>
+        <p class="kv-value roboto-mono-normal" contenteditable="true" data-text></p>
     </template>
 
     <template id="value-number-template">
-        <input type="number" class="kv-value roboto-mono-normal" data-value />
+        <input type="number" class="kv-value roboto-mono-normal" data-number />
     </template>
 </html>
