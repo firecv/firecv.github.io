@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         downloadBtn.classList.remove("hidden-text");
 
         genHTML.innerHTML = "";
+        
         genHTML.appendChild(jsonToHtml(data));
     });
 });
@@ -52,7 +53,6 @@ function jsonToHtml(jsonData) {
 
         jsonData.forEach(object => {
             const objectElement = jsonToHtml(object);
-
             arrayElementChildren.appendChild(objectElement);
         });
 
@@ -93,11 +93,16 @@ function jsonToHtml(jsonData) {
         
         return objectElement;
 
-    } else {
+    } else if (typeof jsonData === "string") {
         // SIMPLE TEXT - it's just text, happens sometimes
         const txtElement = cloneTemplate("txt-template");
         txtElement.querySelector("[data-simple]").textContent = jsonData;
         return txtElement;
+    } else {
+        // SIMPLE NUMBER
+        const numElement = cloneTemplate("num-template");
+        numElement.querySelector("[data-simple-n]").value = jsonData;
+        return numElement;
     }
 }
 
@@ -105,7 +110,7 @@ function jsonToHtml(jsonData) {
 function cloneTemplate(templateId) {
     const template = document.getElementById(templateId);
 
-    return template.content.cloneNode(true);
+    return template.content.cloneNode(true).firstElementChild;
 }
 
 
@@ -139,6 +144,8 @@ function htmlToJson(objectElement) {
     if (objectElement.hasAttribute("data-text") || objectElement.hasAttribute("data-number")) return handleValue(objectElement);
     
     if (objectElement.hasAttribute("data-simple-text")) return handleTxt(objectElement);
+
+    if (objectElement.hasAttribute("data-simple-num")) return handleNum(objectElement);
 }
 
 // for each object in the html "array", creates an identical one in an array, which is then returned
@@ -183,8 +190,52 @@ function handleValue(objectElement) {
     }
 }
 
-// gets plain text from the html and returns it
+// gets plain text/number from the html and returns it
 function handleTxt(objectElement) {
     const objectElementChildren = objectElement.querySelector(":scope > [data-simple]");
-    return objectElement.textContent.trim();
+    return objectElementChildren.textContent.trim();
 }
+function handleNum(objectElement) {
+    const objectElementChildren = objectElement.querySelector(":scope > [data-simple-n]");
+    
+    if (!isNaN(objectElement.value)) {
+        return Number(objectElementChildren.value.trim());
+    } else {
+        return objectElementChildren.value.trim();
+    }
+}
+
+
+// SHIFT THE STRUCTURE
+
+let htmlOffset = 0;
+let scroll = 0;
+
+document.addEventListener("mousemove", (event) => {
+    const mouseX = event.clientX;
+    const screenWidth = window.innerWidth;
+    const outerBuffer = 300;
+    const innerBuffer = 150;
+
+    if (mouseX > screenWidth - innerBuffer) {
+        scroll = -3;
+    } else if (mouseX > screenWidth - outerBuffer) {
+        scroll = -1;
+    } else if (mouseX < innerBuffer) {
+        scroll = 3;
+    } else if (mouseX < outerBuffer) {
+        scroll = 1;
+    } else {
+        scroll = 0;
+    }
+});
+
+function offset() {
+    htmlOffset += scroll * 2;
+    htmlTrueOffset = Math.min(htmlOffset, 0);
+
+    genHTML.style.transform = `translateX(${htmlTrueOffset}px)`;
+    requestAnimationFrame(offset);
+}
+
+offset();

@@ -1,12 +1,14 @@
 html {
     scroll-behavior: smooth;
-    background-color: var(--bg-color);
 }
 
 * {
     margin: 0px;
     padding: 0px;
-    scrollbar-color: var(--accent-color) var(--bg-color);
+}
+
+#json-output {
+    will-change: transform;
 }
 
 body {
@@ -74,11 +76,10 @@ input[type=file] {
     font-weight: 500;
     font-style: normal;
     font-size: 40px;
-    transition: 0.3s;
 }
 
 #download-button:hover {
-    transform: scale(1.1);
+    border: 3px black solid;
 }
 
 .instruction-text {
@@ -126,11 +127,10 @@ input[type=file] {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 20px;
-    transition: 0.3s;
 }
 
 .kv-div:hover {
-    transform: scale(1.02);
+    border: 2px black solid;
 }
 
 .kv-key {
@@ -141,6 +141,7 @@ input[type=file] {
 
 .key-value-container {
     min-width: 200px;
+    max-width: 60vw;
     text-align: left;
 }
 
@@ -151,11 +152,11 @@ input[type=file] {
 
 .txt-div {
     background-color: rgba(255, 244, 42, 0.392);
-    transition: 0.3s;
+    max-width: 60vw;
 }
 
 .txt-div:hover {
-    transform: scale(1.02);
+    border: 2px black solid;
 }
 
 input[type=number] {
