@@ -94,11 +94,14 @@ function jsonToHtml(jsonData) {
         return objectElement;
 
     } else {
-        //return document.createTextNode(jsonData);
-        return null;
+        // SIMPLE TEXT - it's just text, happens sometimes
+        const txtElement = cloneTemplate("txt-template");
+        txtElement.querySelector("[data-simple]").textContent = jsonData;
+        return txtElement;
     }
 }
 
+// Gets a template from the html to clone, just easier than writing it each time
 function cloneTemplate(templateId) {
     const template = document.getElementById(templateId);
 
@@ -127,16 +130,15 @@ function downloadNewJSON(newFileObject) {
     jsonPseudoLink.remove();
 }
 
+// Chooses a handleThing function to use
 function htmlToJson(objectElement) {
-    if (objectElement.hasAttribute("data-array")) {
-        return handleArray(objectElement);
-    }
-    if (objectElement.hasAttribute("data-object")) {
-        return handleObject(objectElement);
-    }
-    if (objectElement.hasAttribute("data-text") || objectElement.hasAttribute("data-number")) {
-        return handleValue(objectElement);
-    }
+    if (objectElement.hasAttribute("data-array")) return handleArray(objectElement);
+
+    if (objectElement.hasAttribute("data-object")) return handleObject(objectElement);
+
+    if (objectElement.hasAttribute("data-text") || objectElement.hasAttribute("data-number")) return handleValue(objectElement);
+    
+    if (objectElement.hasAttribute("data-simple-text")) return handleTxt(objectElement);
 }
 
 // for each object in the html "array", creates an identical one in an array, which is then returned
@@ -144,7 +146,7 @@ function handleArray(objectElement) {
     const newArray = [];
     const objectElementChildren = objectElement.querySelector(":scope > [data-children]");
 
-    objectElementChildren.querySelectorAll(":scope > [data-object]").forEach(obj => {
+    objectElementChildren.querySelectorAll(":scope > [data-object], :scope > [data-simple-text]").forEach(obj => {
         const newObject = htmlToJson(obj);
         newArray.push(newObject);
     });
@@ -179,4 +181,10 @@ function handleValue(objectElement) {
     } else {
         return objectElement.textContent.trim();
     }
+}
+
+// gets plain text from the html and returns it
+function handleTxt(objectElement) {
+    const objectElementChildren = objectElement.querySelector(":scope > [data-simple]");
+    return objectElement.textContent.trim();
 }
