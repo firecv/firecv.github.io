@@ -24,6 +24,11 @@
         <p id="instruction-text2" class="hidden-text">JSON file successfully uploaded! To edit text values, just click<br>
             To scroll horizontally, move your mouse to the left/right edges of the screen.</p>
 
+        <div class="filter-div alumni-sans-bold">
+            <label>TYPE TO FILTER KEYS/VALUES: </label>
+            <input id="filter" type="text" value="" />
+        </div>
+        
         <section id="json-output" data-name="json-root">
             <!-- Populated with the templates (under the body code) in json-script.js -->
         </section>
@@ -69,7 +74,7 @@
 
     <template id="num-template">
         <div class="txt-div entry-div" data-simple-num>
-            <input type="number" class="kv-value roboto-mono-normal" data-simple-n />
+            <input type="number" class="roboto-mono-normal" data-simple-n />
         </div>
     </template>
 </html>

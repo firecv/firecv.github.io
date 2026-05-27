@@ -16,6 +16,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding-bottom: 40px;
+    overflow-x: scroll;
 }
 
 #header {
@@ -82,7 +83,7 @@ input[type=file] {
 }
 
 #download-button:hover {
-    border: 3px black solid;
+    transform: scale(1.05);
 }
 
 .instruction-text {
@@ -132,10 +133,6 @@ input[type=file] {
     gap: 20px;
 }
 
-.kv-div:hover {
-    border: 2px black solid;
-}
-
 .kv-key {
     min-width: 140px;
     text-align: right;
@@ -158,12 +155,29 @@ input[type=file] {
     max-width: 60vw;
 }
 
-.txt-div:hover {
-    border: 2px black solid;
-}
-
 input[type=number] {
     background-color: rgba(255, 255, 255, 0);
     border: 0px;
     font-size: 16px;
 }
+
+.filter-div {
+    border: 2px black solid;
+    border-radius: 10px;
+    background-color: rgba(78, 255, 42, 0.392);
+    margin-top: 15px;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+}
+
+.filter-out {
+    visibility: hidden;
+    font-size: 0;
+}
+
+/*
+.filter-in {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.25);
+    border: 4px black double;
+}
+*/

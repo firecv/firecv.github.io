@@ -240,8 +240,65 @@ function offset() {
     htmlOffset += scroll * 2;
     htmlTrueOffset = Math.min(htmlOffset, 0);
 
+    if (htmlOffset > 0) htmlOffset = 0;
+
     genHTML.style.transform = `translateX(${htmlTrueOffset}px)`;
     requestAnimationFrame(offset);
 }
 
 offset();
+
+
+// FILTER THE STRUCTURE
+
+const filterInput = document.getElementById("filter");
+
+filterInput.addEventListener("input", () => {
+    const input = filterInput.value.toLowerCase().trim();
+
+    const itemsToCheck = genHTML.querySelectorAll(".kv-div, .txt-div");
+
+    itemsToCheck.forEach(item => {
+        const itemText = getTextContent(item);
+
+        if (itemText.includes(input)) {
+            item.classList.remove("filter-out");
+            item.classList.add("filter-in");
+        } else {
+            item.classList.add("filter-out");
+            item.classList.remove("filter-in");
+        }
+    });
+
+    itemsToCheck.forEach(item => {
+        if (item.querySelector(".filter-in")) {
+            item.classList.remove("filter-out");
+        }
+    });
+});
+
+function getTextContent(item) {
+    if (item.hasAttribute("data-kv")) {
+        const itemName = item.querySelector(".kv-key").textContent.toLowerCase().trim();
+        
+        const valueItem = item.querySelector(".kv-value-container").querySelector(".kv-value");
+
+        if (!valueItem) return itemName;
+
+        if (valueItem.hasAttribute("data-text")) {
+            return itemName + " " + valueItem.textContent.toLowerCase().trim();
+        } else if (valueItem.hasAttribute("data-number")) {
+            return itemName + " " + valueItem.value.toLowerCase().trim();
+        }
+        return itemName;
+
+    } else if (item.hasAttribute("data-simple-text")) {
+        return item.querySelector("p").textContent.toLowerCase().trim();
+    
+    } else if (item.hasAttribute("data-simple-num")) {
+        return item.querySelector("input").value.toLowerCase().trim();
+    
+    } else {
+        return "";
+    }
+}
