@@ -211,6 +211,12 @@ function handleNum(objectElement) {
 let htmlOffset = 0;
 let scroll = 0;
 
+const headerButton = document.getElementById("header-title");
+
+headerButton.addEventListener("click", function() {
+    htmlOffset = 0;
+});
+
 document.addEventListener("mousemove", (event) => {
     const mouseX = event.clientX;
     const screenWidth = window.innerWidth;
